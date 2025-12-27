@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Impressum – Holwicki</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin:0;
+      padding:24px;
+      background:#07130c;
+      color:#eef7f1;
+    }
+    main{max-width:800px;margin:auto}
+    a{color:#8fd3a8;text-decoration:none}
+    a:hover{text-decoration:underline}
+    h1{margin-top:0}
+    p{line-height:1.6}
+  </style>
+</head>
+<body>
+<main>
+
+<h1>Impressum</h1>
+
+<p><strong>Angaben gemäß § 5 TMG</strong></p>
+
+<p>
+<strong>Bürgervereinigung Köln-Holweide e. V.</strong><br>
+Am Marienstift 20<br>
+51067 Köln
+</p>
+
+<p>
+E-Mail:
+<a href="mailto:info@buergervereinigung-holweide.de">
+info@buergervereinigung-holweide.de
+</a>
+</p>
+
+<p>
+<strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+Bürgervereinigung Köln-Holweide e. V., Köln
+</p>
+
+<p>
+Die Holwicki ist ein privates, nicht-kommerzielles Informationsprojekt
+mit lokalhistorischem Bezug.
+</p>
+
+<p>
+<a href="index.html">← zurück zur Startseite</a>
+</p>
+
+</main>
+</body>
+</html>
