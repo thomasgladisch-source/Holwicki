@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Straßen & Plätze – Holwicki</title>
+  <meta name="description" content="Straßen & Plätze in Holweide – Holwicki." />
+
+  <style>
+    :root{
+      --bg:#07130c;
+      --panel:rgba(120,180,150,.12);
+      --panel2:rgba(120,180,150,.07);
+      --text:#eef7f1;
+      --muted:#b7d3c4;
+      --link:#8fd3a8;
+      --border:rgba(160,210,185,.25);
+      --radius:18px;
+      --max:980px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(900px 600px at 15% 0%, #0f3a28, transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, #143d2b, transparent 55%),
+        var(--bg);
+      color:var(--text);
+    }
+    a{color:var(--link);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px}
+
+    /* Topbar */
+    .topbar{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      background:rgba(7,19,12,.75);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--border);
+      padding:12px 18px;
+      z-index:10;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:99px;
+      background:var(--link);
+      box-shadow:0 0 0 4px rgba(143,211,168,.18);
+    }
+    .nav{
+      display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+    }
+    .nav a{color:var(--muted)}
+    .nav a:hover{color:var(--text); text-decoration:none}
+
+    /* Page header */
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, var(--panel), var(--panel2));
+      border-radius:var(--radius);
+      padding:18px;
+    }
+    h1{margin:0 0 6px; font-size:26px; line-height:1.15}
+    .sub{margin:0; color:var(--muted); line-height:1.5}
+    .tools{
+      margin-top:12px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .search{
+      flex:1;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    input[type="search"]{
+      flex:1;
+      min-width:220px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+      outline:none;
+    }
+    .az{
+      display:flex;
+      flex-wrap:wrap;
+      gap:6px;
+      justify-content:flex-end;
+    }
+    .az button{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.08);
+      color:var(--muted);
+      border-radius:999px;
+      padding:7px 10px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .az button.active{color:var(--text); background:rgba(255,255,255,.14)}
+    .az button:hover{color:var(--text)}
+    .hint{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    /* List */
+    .card{
+      margin-top:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      border-radius:var(--radius);
+      padding:14px;
+    }
+    .row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:12px 0;
+      border-top:1px solid var(--border);
+    }
+    .row:first-child{border-top:none}
+    .name{
+      font-weight:800;
+    }
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+      margin-top:2px;
+    }
+    .badge{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.10);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--muted);
+      flex:0 0 auto;
+      white-space:nowrap;
+    }
+    .disabled{
+      opacity:.55;
+      cursor:not-allowed;
+      text-decoration:none !important;
+    }
+    .disabled:hover{ text-decoration:none }
+    footer{
+      margin:18px 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--border);
+      padding-top:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <span>Holwicki</span>
+    </div>
+    <nav class="nav">
+      <a href="index.html">Start</a>
+      <a href="strassen.html">Straßen &amp; Plätze</a>
+      <a href="impressum.html">Impressum</a>
+    </nav>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <h1>Straßen &amp; Plätze</h1>
+      <p class="sub">Liste aller Holweider Straßen. Klickbar sind nur Straßen mit vorhandenem Artikel.</p>
+
+      <div class="tools">
+        <div class="search">
+          <input id="q" type="search" placeholder="Suchen… (z.B. Maria, Bergisch, Straße)" autocomplete="off">
+        </div>
+        <div class="az" id="az"></div>
+      </div>
+
+      <div class="hint">
+        Legende: <strong>Artikel</strong> = klickbar · <span style="opacity:.8">kein Artikel</span> = nicht klickbar
+      </div>
+    </section>
+
+    <section class="card" aria-label="Straßenliste">
+      <div id="list"></div>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Holwicki · <a href="impressum.html">Impressum</a>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    /**
+     * ✅ HIER pflegst du deine Straßenliste.
+     * - name: Anzeige
+     * - slug: Dateiname des Artikels (ohne .html) -> klickbar
+     * - wenn slug fehlt oder leer ist: NICHT klickbar
+     */
+    const STREETS = [
+      { name: "Maria-Himmelfahrt-Straße", slug: "maria-himmelfahrt-strasse", note: "Artikel vorhanden" },
+      { name: "Bergisch Gladbacher Straße", slug: "", note: "" },
+      { name: "Schweinheimer Straße", slug: "", note: "" },
+      { name: "Suitbertstraße", slug: "", note: "" },
+      { name: "Isenburgstraße", slug: "", note: "" },
+      { name: "Wichheimer Straße", slug: "", note: "" },
+      // ... hier ergänzt du ALLE weiteren Straßen
+    ];
+
+    // ---- Rendering ----
+    const listEl = document.getElementById("list");
+    const qEl = document.getElementById("q");
+    const azEl = document.getElementById("az");
+
+    const normalize = (s) => (s || "")
+      .toLowerCase()
+      .replaceAll("ß","ss")
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
+    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+
+    let activeLetter = "ALLE";
+
+    function buildAZ(){
+      azEl.innerHTML = "";
+      const allBtn = document.createElement("button");
+      allBtn.textContent = "ALLE";
+      allBtn.className = activeLetter === "ALLE" ? "active" : "";
+      allBtn.onclick = () => { activeLetter = "ALLE"; render(); highlightAZ(); };
+      azEl.appendChild(allBtn);
+
+      for (const L of letters){
+        const btn = document.createElement("button");
+        btn.textContent = L;
+        btn.className = activeLetter === L ? "active" : "";
+        btn.onclick = () => { activeLetter = L; render(); highlightAZ(); };
+        azEl.appendChild(btn);
+      }
+    }
+
+    function highlightAZ(){
+      [...azEl.querySelectorAll("button")].forEach(b => {
+        b.classList.toggle("active", b.textContent === activeLetter);
+      });
+    }
+
+    function render(){
+      const q = normalize(qEl.value.trim());
+
+      const filtered = STREETS
+        .slice()
+        .sort((a,b) => a.name.localeCompare(b.name, "de"))
+        .filter(s => {
+          const n = normalize(s.name);
+          const matchesQ = !q || n.includes(q);
+          const matchesLetter = activeLetter === "ALLE" || n.startsWith(normalize(activeLetter));
+          return matchesQ && matchesLetter;
+        });
+
+      if (filtered.length === 0){
+        listEl.innerHTML = '<div class="meta">Keine Treffer.</div>';
+        return;
+      }
+
+      listEl.innerHTML = "";
+      for (const s of filtered){
+        const row = document.createElement("div");
+        row.className = "row";
+
+        const left = document.createElement("div");
+
+        const clickable = !!(s.slug && s.slug.trim());
+        if (clickable){
+          const a = document.createElement("a");
+          a.className = "name";
+          a.href = `${s.slug}.html`;
+          a.textContent = s.name;
+          left.appendChild(a);
+        } else {
+          const span = document.createElement("span");
+          span.className = "name disabled";
+          span.textContent = s.name;
+          left.appendChild(span);
+        }
+
+        const meta = document.createElement("div");
+        meta.className = "meta";
+        meta.textContent = s.note ? s.note : (clickable ? "Artikel vorhanden" : "Noch kein Artikel");
+        left.appendChild(meta);
+
+        const badge = document.createElement("span");
+        badge.className = "badge";
+        badge.textContent = clickable ? "Artikel" : "kein Artikel";
+
+        row.appendChild(left);
+        row.appendChild(badge);
+        listEl.appendChild(row);
+      }
+    }
+
+    buildAZ();
+    render();
+
+    qEl.addEventListener("input", render);
+  </script>
+</body>
+</html>
