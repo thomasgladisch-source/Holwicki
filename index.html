@@ -197,5 +197,207 @@
     }
 
     h1{margin:0 0 6px; font-size:28px; line-height:1.15}
-    .sub{margin:0; color:var(--mut
+    .sub{margin:0; color:var(--muted); line-height:1.5}
+
+    .search{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+
+    .search input{
+      flex:1;
+      min-width:220px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
+    }
+
+    .search button{
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.10);
+      color:var(--text);
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1.4fr .6fr;
+      gap:14px;
+      margin-top:14px;
+    }
+
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+    }
+
+    .list{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .item{
+      display:flex;
+      gap:10px;
+      justify-content:space-between;
+      align-items:flex-start;
+      padding:12px 0;
+      border-top:1px solid var(--border);
+    }
+
+    .item:first-child{border-top:none}
+    .item a{font-weight:750}
+
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+
+    .badge{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.10);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:12px;
+      color:var(--muted);
+      flex:0 0 auto;
+    }
+
+    footer{
+      margin:18px 0 10px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid var(--border);
+      padding-top:12px;
+    }
+
+    /* nicer jump target */
+    .anchor{scroll-margin-top:80px}
+  </style>
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <span>Holwicki</span>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="#artikel">Artikel</a>
+    <a href="#neu">Neu</a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+</header>
+
+<!-- Split-Screen Start (Screenshot-Look) -->
+<section class="split" aria-label="Startmenü Hollwiki">
+  <div class="split-left">
+    <div class="split-brandbox">
+      <div class="split-title">Hollwiki</div>
+      <div class="split-sub">Die Holweidepedia</div>
+      <img class="split-crest" src="wappen.png" alt="Wappen Holweide">
+    </div>
+  </div>
+
+  <div class="split-right">
+    <nav class="split-menu" aria-label="Menü">
+      <a href="#orte">Orte</a>
+      <a href="#strassen">Straßen &amp; Plätze</a>
+      <a href="#personen">Personen &amp; Originale</a>
+      <a href="#vereine">Vereine &amp; Initiativen</a>
+      <a href="#unternehmen">Unternehmen</a>
+      <a href="#gaststaetten">Gaststätten</a>
+    </nav>
+  </div>
+</section>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Geschichten &amp; Geschichte aus Holweide</h1>
+    <p class="sub">
+      Kurze Lexikonartikel zu Orten, Fluren, Personen und Ereignissen.
+      Sachlich, nachvollziehbar, miteinander verknüpft.
+    </p>
+
+    <div class="search">
+      <input placeholder="Suche (kommt später) …" disabled>
+      <button disabled>Suche</button>
+    </div>
+  </section>
+
+  <!-- Dummy-Anker für das Split-Menü (kannst du später füllen/ersetzen) -->
+  <div id="orte" class="anchor"></div>
+  <div id="strassen" class="anchor"></div>
+  <div id="personen" class="anchor"></div>
+  <div id="vereine" class="anchor"></div>
+  <div id="unternehmen" class="anchor"></div>
+  <div id="gaststaetten" class="anchor"></div>
+
+  <section class="grid">
+
+    <div class="card" id="artikel">
+      <h2>Artikel</h2>
+      <ul class="list">
+        <li class="item">
+          <div>
+            <a href="hohle-weide.html">Die hohle Weide</a><br>
+            <span class="meta">Flurbezeichnung und Ursprung des Ortsnamens</span>
+          </div>
+          <span class="badge">Flurname</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="card" id="neu">
+        <h2>Neu hinzugefügt</h2>
+        <ul class="list">
+          <li class="item">
+            <div>
+              <a href="hohle-weide.html">Die hohle Weide</a><br>
+              <span class="meta">gerade erstellt</span>
+            </div>
+            <span class="badge">Neu</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    © <span id="y"></span> Holwicki ·
+    <a href="impressum.html">Impressum</a>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
  
