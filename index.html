@@ -5,46 +5,79 @@
   <title>Holwicki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Holwicki – Geschichten & Begriffe rund um Holweide." />
+
   <style>
     :root{
-      --bg:#0b0f19;
-      --panel:rgba(255,255,255,.06);
-      --panel2:rgba(255,255,255,.04);
-      --text:#eef2ff;
-      --muted:#b7c0dd;
-      --link:#9bbcff;
-      --border:rgba(255,255,255,.10);
+      --bg:#07130c;
+      --panel:rgba(120,180,150,.12);
+      --panel2:rgba(120,180,150,.07);
+      --text:#eef7f1;
+      --muted:#b7d3c4;
+      --link:#8fd3a8;
+      --border:rgba(160,210,185,.25);
       --radius:18px;
       --max:980px;
     }
+
     *{box-sizing:border-box}
+
     body{
       margin:0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:
-        radial-gradient(900px 600px at 15% 0%, #1b2a5a, transparent 60%),
-        radial-gradient(900px 600px at 85% 10%, #3a1f60, transparent 55%),
+        radial-gradient(900px 600px at 15% 0%, #0f3a28, transparent 60%),
+        radial-gradient(900px 600px at 85% 10%, #143d2b, transparent 55%),
         var(--bg);
       color:var(--text);
     }
+
     a{color:var(--link);text-decoration:none}
     a:hover{text-decoration:underline}
 
     .wrap{max-width:var(--max); margin:0 auto; padding:18px}
+
+    /* Header */
     .topbar{
-      display:flex; gap:14px; align-items:center; justify-content:space-between;
-      position:sticky; top:0;
-      background:rgba(11,15,25,.70);
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      position:sticky;
+      top:0;
+      background:rgba(7,19,12,.75);
       backdrop-filter: blur(10px);
       border-bottom:1px solid var(--border);
       padding:12px 18px;
+      z-index:10;
     }
-    .brand{display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.2px}
-    .dot{width:10px;height:10px;border-radius:99px;background:#9bbcff;box-shadow:0 0 0 4px rgba(155,188,255,.15)}
-    .nav{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .dot{
+      width:10px;
+      height:10px;
+      border-radius:99px;
+      background:var(--link);
+      box-shadow:0 0 0 4px rgba(143,211,168,.18);
+    }
+
+    .nav{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
     .nav a{color:var(--muted)}
     .nav a:hover{color:var(--text); text-decoration:none}
 
+    /* Hero */
     .hero{
       margin-top:18px;
       border:1px solid var(--border);
@@ -52,13 +85,17 @@
       border-radius:var(--radius);
       padding:22px;
     }
+
     h1{margin:0 0 6px; font-size:28px; line-height:1.15}
     .sub{margin:0; color:var(--muted); line-height:1.5}
 
     .search{
       margin-top:14px;
-      display:flex; gap:10px; flex-wrap:wrap;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
     }
+
     .search input{
       flex:1;
       min-width:220px;
@@ -67,8 +104,8 @@
       border:1px solid var(--border);
       background:rgba(0,0,0,.25);
       color:var(--text);
-      outline:none;
     }
+
     .search button{
       padding:12px 14px;
       border-radius:14px;
@@ -78,13 +115,15 @@
       font-weight:700;
     }
 
+    /* Grid */
     .grid{
       display:grid;
-      grid-template-columns: 1.4fr .6fr;
+      grid-template-columns:1.4fr .6fr;
       gap:14px;
       margin-top:14px;
     }
-    @media (max-width: 900px){
+
+    @media (max-width:900px){
       .grid{grid-template-columns:1fr}
     }
 
@@ -94,41 +133,69 @@
       border-radius:var(--radius);
       padding:16px;
     }
+
     .card h2{
       margin:0 0 10px;
       font-size:18px;
     }
 
-    .chips{display:flex; flex-wrap:wrap; gap:8px}
-    .chip{
-      display:inline-flex; align-items:center;
-      padding:8px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background:rgba(0,0,0,.18);
-      color:var(--muted);
-      font-size:13px;
-      white-space:nowrap;
+    .list{
+      margin:0;
+      padding:0;
+      list-style:none;
     }
-    .chip:hover{color:var(--text); text-decoration:none; background:rgba(255,255,255,.08)}
 
-    .list{margin:0; padding:0; list-style:none}
     .item{
-      display:flex; gap:10px; justify-content:space-between; align-items:flex-start;
+      display:flex;
+      gap:10px;
+      justify-content:space-between;
+      align-items:flex-start;
       padding:12px 0;
       border-top:1px solid var(--border);
     }
+
     .item:first-child{border-top:none}
+
     .item a{font-weight:750}
-    .meta{color:var(--muted); font-size:13px; line-height:1.35}
+
+    .meta{
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.35;
+    }
+
     .badge{
       border:1px solid var(--border);
-      background:rgba(255,255,255,.08);
+      background:rgba(255,255,255,.10);
       border-radius:999px;
       padding:6px 10px;
       font-size:12px;
       color:var(--muted);
       flex:0 0 auto;
+    }
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.20);
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .chip:hover{
+      color:var(--text);
+      text-decoration:none;
+      background:rgba(255,255,255,.08);
     }
 
     footer{
@@ -138,106 +205,94 @@
       border-top:1px solid var(--border);
       padding-top:12px;
     }
-    .small{opacity:.9}
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="brand">
-      <span class="dot"></span>
-      <span>Holwicki</span>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="dot"></span>
+    <span>Holwicki</span>
+  </div>
+  <nav class="nav">
+    <a href="index.html">Start</a>
+    <a href="#artikel">Artikel</a>
+    <a href="#kategorien">Kategorien</a>
+    <a href="#neu">Neu</a>
+    <a href="impressum.html">Impressum</a>
+  </nav>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <h1>Geschichten & Begriffe aus Holweide</h1>
+    <p class="sub">
+      Kurze Lexikonartikel zu Orten, Fluren, Personen und Ereignissen.
+      Sachlich, nachvollziehbar, miteinander verknüpft.
+    </p>
+
+    <div class="search">
+      <input placeholder="Suche (kommt später) …" disabled>
+      <button disabled>Suche</button>
     </div>
-    <nav class="nav">
-      <a href="index.html">Start</a>
-      <a href="#artikel">Artikel</a>
-      <a href="#kategorien">Kategorien</a>
-      <a href="#neu">Neu</a>
-    </nav>
-  </header>
+  </section>
 
-  <main class="wrap">
-    <section class="hero">
-      <h1>Geschichten & Begriffe aus Holweide</h1>
-      <p class="sub">
-        Kurze Lexikonartikel, Orte, Personen, Flurnamen – sauber verlinkt, Stück für Stück erweitert.
-      </p>
+  <section class="grid">
 
-      <div class="search">
-        <input placeholder="Suche (kommt später) …" disabled>
-        <button type="button" disabled>Suche</button>
+    <div class="card" id="artikel">
+      <h2>Artikel</h2>
+      <ul class="list">
+        <li class="item">
+          <div>
+            <a href="hohle-weide.html">Die hohle Weide</a><br>
+            <span class="meta">Flurbezeichnung und Ursprung des Ortsnamens</span>
+          </div>
+          <span class="badge">Flurname</span>
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      <div class="card" id="kategorien">
+        <h2>Kategorien</h2>
+        <div class="chips">
+          <a class="chip" href="#artikel">Orte</a>
+          <a class="chip" href="#artikel">Flurnamen</a>
+          <a class="chip" href="#artikel">Höfe & Güter</a>
+          <a class="chip" href="#artikel">Personen</a>
+          <a class="chip" href="#artikel">Gewässer</a>
+          <a class="chip" href="#artikel">1799/1800</a>
+        </div>
       </div>
-    </section>
 
-    <section class="grid">
-      <!-- LINKS: Artikelliste -->
-      <div class="card" id="artikel">
-        <h2>Artikel</h2>
+      <div class="card" id="neu" style="margin-top:14px">
+        <h2>Neu hinzugefügt</h2>
         <ul class="list">
           <li class="item">
             <div>
               <a href="hohle-weide.html">Die hohle Weide</a><br>
-              <span class="meta">Flurbezeichnung / Ursprung des Namens – Einstieg</span>
+              <span class="meta">gerade erstellt</span>
             </div>
-            <span class="badge">Ort & Name</span>
+            <span class="badge">Neu</span>
           </li>
-
-          <!-- Weitere Artikel hier als Kopie einfügen -->
-          <!--
-          <li class="item">
-            <div>
-              <a href="strunde.html">Strunde</a><br>
-              <span class="meta">Bachlauf, Mühlen, Bedeutung für die Siedlungen</span>
-            </div>
-            <span class="badge">Gewässer</span>
-          </li>
-          -->
         </ul>
-        <p class="meta small">
-          Tipp: Wenn du einen neuen Artikel anlegst, kopierst du einfach einen Listeneintrag und passt Link + Text an.
-        </p>
       </div>
+    </div>
 
-      <!-- RECHTS: Kategorien + Neu -->
-      <div>
-        <div class="card" id="kategorien">
-          <h2>Kategorien</h2>
-          <div class="chips">
-            <a class="chip" href="#artikel">Orte</a>
-            <a class="chip" href="#artikel">Personen</a>
-            <a class="chip" href="#artikel">Flurnamen</a>
-            <a class="chip" href="#artikel">Höfe & Güter</a>
-            <a class="chip" href="#artikel">Gewässer</a>
-            <a class="chip" href="#artikel">1799/1800</a>
-            <a href="impressum.html">Impressum</a>
-          </div>
-          <p class="meta small" style="margin-top:10px">
-            Diese Chips sind erstmal nur Navigation. Später können wir daraus echte Filter machen.
-          </p>
-        </div>
+  </section>
 
-        <div class="card" id="neu" style="margin-top:14px">
-          <h2>Neu hinzugefügt</h2>
-          <ul class="list">
-            <li class="item">
-              <div>
-                <a href="hohle-weide.html">Die hohle Weide</a><br>
-                <span class="meta">Gerade erstellt</span>
-              </div>
-              <span class="badge">Neu</span>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
+  <footer>
+    © <span id="y"></span> Holwicki ·
+    <a href="impressum.html">Impressum</a>
+  </footer>
 
-    <footer>
-      <div class="small">© <span id="y"></span> Holwicki · Kostenlos gehostet auf Netlify</div>
-    </footer>
-  </main>
+</main>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+<script>
+  document.getElementById("y").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
