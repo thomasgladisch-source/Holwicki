@@ -8,6 +8,7 @@
 
   <style>
     :root{
+      /* deine bisherigen Farben */
       --bg:#07130c;
       --panel:rgba(120,180,150,.12);
       --panel2:rgba(120,180,150,.07);
@@ -17,6 +18,13 @@
       --border:rgba(160,210,185,.25);
       --radius:18px;
       --max:980px;
+
+      /* Split-Screen Farben aus dem Screenshot */
+      --split-left:#f3eeee;
+      --split-right:#0b553a;
+      --split-line:rgba(255,255,255,.22);
+      --split-brand:#0b553a;
+      --split-menu:rgba(255,255,255,.90);
     }
 
     *{box-sizing:border-box}
@@ -36,7 +44,7 @@
 
     .wrap{max-width:var(--max); margin:0 auto; padding:18px}
 
-    /* Header */
+    /* Header (deine Topbar) */
     .topbar{
       display:flex;
       gap:14px;
@@ -77,7 +85,114 @@
     .nav a{color:var(--muted)}
     .nav a:hover{color:var(--text); text-decoration:none}
 
-    /* Hero */
+    /* =========================
+       SPLIT-SCREEN STARTBLOCK
+       ========================= */
+    .split{
+      min-height: 78svh;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      margin:18px;
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid var(--border);
+    }
+
+    .split-left{
+      background: var(--split-left);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:56px 24px;
+    }
+
+    .split-brandbox{
+      width:min(520px, 100%);
+      color:#0b0f19;
+    }
+
+    .split-title{
+      margin:0 0 6px 0;
+      font-size: clamp(44px, 5vw, 64px);
+      line-height:1.05;
+      color:var(--split-brand);
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+
+    .split-sub{
+      margin:0 0 28px 0;
+      font-size: clamp(20px, 2.2vw, 30px);
+      color:var(--split-brand);
+      font-weight:700;
+      opacity:.95;
+    }
+
+    .split-crest{
+      margin-top:10px;
+      width:min(420px, 100%);
+      height:auto;
+      display:block;
+      filter: grayscale(100%) contrast(1.05);
+    }
+
+    .split-right{
+      background: var(--split-right);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px 18px;
+    }
+
+    .split-menu{
+      width:min(520px, 92%);
+      border-top:1px solid var(--split-line);
+    }
+
+    .split-menu a{
+      display:block;
+      text-decoration:none;
+      color:var(--split-menu);
+      font-weight:600;
+      letter-spacing:.2px;
+      text-align:center;
+      padding:28px 10px;
+      border-top:1px solid var(--split-line);
+      transition: transform .15s ease, opacity .15s ease;
+    }
+
+    .split-menu a:first-child{
+      border-top:none;
+    }
+
+    .split-menu a:last-child{
+      border-bottom:1px solid var(--split-line);
+    }
+
+    .split-menu a:hover{
+      transform: translateY(-1px);
+      opacity:1;
+      text-decoration:none;
+    }
+
+    @media (max-width: 900px){
+      .split{
+        grid-template-columns:1fr;
+        min-height:auto;
+      }
+      .split-left{
+        padding:40px 20px 28px;
+      }
+      .split-brandbox{
+        text-align:center;
+      }
+      .split-crest{
+        margin-left:auto;
+        margin-right:auto;
+      }
+    }
+
+    /* Hero / Cards (dein bisheriges Layout) */
     .hero{
       margin-top:18px;
       border:1px solid var(--border);
@@ -115,7 +230,6 @@
       font-weight:700;
     }
 
-    /* Grid */
     .grid{
       display:grid;
       grid-template-columns:1.4fr .6fr;
@@ -205,6 +319,9 @@
       border-top:1px solid var(--border);
       padding-top:12px;
     }
+
+    /* nicer jump target */
+    .anchor{scroll-margin-top:80px}
   </style>
 </head>
 
@@ -224,10 +341,33 @@
   </nav>
 </header>
 
+<!-- Split-Screen Start (Screenshot-Look) -->
+<section class="split" aria-label="Startmenü Hollwiki">
+  <div class="split-left">
+    <div class="split-brandbox">
+      <div class="split-title">Hollwiki</div>
+      <div class="split-sub">Die Holweidepedia</div>
+      <img class="split-crest" src="wappen.png" alt="Wappen Holweide">
+    </div>
+  </div>
+
+  <div class="split-right">
+    <nav class="split-menu" aria-label="Kategorien">
+      <a href="#orte">Orte</a>
+      <a href="#strassen">Straßen &amp; Plätze</a>
+      <a href="#personen">Personen &amp; Originale</a>
+      <a href="#vereine">Vereine &amp; Initiativen</a>
+      <a href="#unternehmen">Unternehmen</a>
+      <a href="#gaststaetten">Gaststätten</a>
+    </nav>
+  </div>
+</section>
+
 <main class="wrap">
 
+  <!-- Deine bisherige Hero-Box -->
   <section class="hero">
-    <h1>Geschichten & Geschichte aus Holweide</h1>
+    <h1>Geschichten &amp; Geschichte aus Holweide</h1>
     <p class="sub">
       Kurze Lexikonartikel zu Orten, Fluren, Personen und Ereignissen.
       Sachlich, nachvollziehbar, miteinander verknüpft.
@@ -238,6 +378,14 @@
       <button disabled>Suche</button>
     </div>
   </section>
+
+  <!-- Dummy-Anker für die Split-Menüpunkte (du kannst später echte Seiten draus machen) -->
+  <div id="orte" class="anchor"></div>
+  <div id="strassen" class="anchor"></div>
+  <div id="personen" class="anchor"></div>
+  <div id="vereine" class="anchor"></div>
+  <div id="unternehmen" class="anchor"></div>
+  <div id="gaststaetten" class="anchor"></div>
 
   <section class="grid">
 
@@ -258,10 +406,10 @@
       <div class="card" id="kategorien">
         <h2>Kategorien</h2>
         <div class="chips">
-          <a class="chip" href="#artikel">Orte</a>
+          <a class="chip" href="#orte">Orte</a>
           <a class="chip" href="#artikel">Flurnamen</a>
-          <a class="chip" href="#artikel">Höfe & Güter</a>
-          <a class="chip" href="#artikel">Personen</a>
+          <a class="chip" href="#artikel">Höfe &amp; Güter</a>
+          <a class="chip" href="#personen">Personen</a>
           <a class="chip" href="#artikel">Gewässer</a>
           <a class="chip" href="#artikel">1799/1800</a>
         </div>
